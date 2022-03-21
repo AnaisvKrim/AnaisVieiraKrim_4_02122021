@@ -22,9 +22,8 @@ const btnSubmit = document.querySelector(".btn-submit");
 const form = document.querySelector('form');
 const btnsRadio = document.querySelectorAll("input[name='location']");
 const btnConditionsUtilisation = document.getElementById("checkbox1");
-const submitBtn = document.querySelectorAll(".button");
 const main = document.querySelector('main');
-
+console.log(btnSubmit);
 
 const inputPrenom = document.getElementById("first");
 const inputNom = document.getElementById("last");
@@ -261,12 +260,12 @@ const validConditions = function(){
 }
 
 /****************ENVOIE DU FORMULAIRE****************/
+
 form.addEventListener('submit', function(e){
   e.preventDefault();
   if(validFirstName(form.first)&& validLastName(form.last) && validEmail(form.email) && validBirthDate(form.birthdate) && validQuantity(form.quantity) && displayCheck(form.location) && validConditions(form.checkbox1)){
-    console.log(backgroundValidation);
     form.submit();
-    setTimeout(msgValidation, 100);
+    msgValidation();
   
   }
   else{
@@ -274,11 +273,9 @@ form.addEventListener('submit', function(e){
   }
 })
 
-function msgValidation(){
-backgroundValidation.style.display= 'block';
-};
-
-
+const msgValidation = function(){
+  backgroundValidation.style.display = "block";
+}
 
 const invalid = function(){
 if(!validFirstName(form.first)){
